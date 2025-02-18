@@ -14,6 +14,7 @@ class FindElementInInfiniteSortedArrayKtTest {
             row(intArrayOf(1, 3, 4, 6, 7, 9, 10, 12, 16, 19, 24, 32, 59, 105, 108, 204), 16, 8),
             row(intArrayOf(1, 3, 4, 6, 7, 9, 10, 12, 16, 19, 24, 32, 59, 105, 108, 204), 15, -1),
             row(intArrayOf(1, 3, 4, 6, 7, 9, 10, 12, 16, 19, 24, 32, 59, 105, 108, 204), 59, 12),
+            row(intArrayOf(1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 19), 3, 1)
         ) { nums, target, result ->
             findElementInInfiniteSortedArray(nums, target) shouldBe result
         }
