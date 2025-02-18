@@ -9,10 +9,10 @@ fun findElementInInfiniteSortedArray(nums: IntArray, target: Int): Int {
     while (start < nums.size && answer == -1) {
         val startValue = nums[start]
         val endValue = nums[end]
-        if (target in (startValue + 1)..<endValue) {
+        if (target in startValue..endValue) {
             answer = binSearch(nums, start, end, target)
         }
-        if (start > target) {
+        if (startValue > target) {
             return -1
         }
 
@@ -30,7 +30,7 @@ private fun binSearch(nums: IntArray, start: Int, end: Int, target: Int): Int {
     var end = end
 
     while (start <= end) {
-        val mid = (end - start) / 2 + start // todo do shr
+        val mid = (start + end).shr(1)
         if (nums[mid] < target) {
             start = mid + 1
         } else if (nums[mid] > target) {
