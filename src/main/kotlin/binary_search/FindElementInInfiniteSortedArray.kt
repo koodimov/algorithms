@@ -5,16 +5,15 @@ fun findElementInInfiniteSortedArray(nums: IntArray, target: Int): Int {
     var end = 1
     var chunk = 1
 
-    while (start < nums.size && nums[start] < target) {
-        if (nums[start] <= target && nums[end] >= target) {
+    while (nums[start] <= target) {
+        if (nums[end] >= target) {
             return binSearch(nums, start, end, target)
         }
-        start = end + 1
-        chunk *= 2
-        end = start + chunk
-        end = if (end < nums.size) end else nums.size - 1
-    }
 
+        chunk *= 2
+        start = end + 1
+        end = (start + chunk) % nums.size
+    }
     return -1
 }
 
